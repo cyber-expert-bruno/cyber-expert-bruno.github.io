@@ -31,6 +31,7 @@
       --green:#53ff83;  
       --yellow:#ffe066;  
       --shadow:0 0 34px rgba(0,255,195,0.18);  
+      --shadow-small:0 0 15px rgba(0,0,0,0.5); /* প্রথম বক্সের জন্য ছোট শ্যাডো */
     }  
   
     html{ scroll-behavior:smooth; }  
@@ -164,7 +165,6 @@
       padding:26px 0 42px;  
     }  
   
-    /* নতুন দুই বক্সের ডিজাইন */  
     .hero-container {  
       display: flex;  
       flex-direction: column;  
@@ -190,6 +190,15 @@
       text-align: center;  
     }  
   
+    /* প্রথম বক্সটির (Bruno) জন্য আলাদা স্টাইল - শ্যাডো ছোট এবং ডার্ক থিম */  
+    .hero-box.bruno-box {  
+      background: linear-gradient(180deg, rgba(4,8,15,0.95), rgba(2,5,10,0.90));  
+      border: 1px solid rgba(255,255,255,0.05);  
+      box-shadow:  
+        0 8px 25px rgba(0,0,0,0.4),  
+        var(--shadow-small);  
+    }  
+  
     .hero-box::before {  
       content: "";  
       position: absolute;  
@@ -205,14 +214,21 @@
       opacity: 0.9;  
     }  
   
+    /* প্রথম বক্সের ব্যাকগ্রাউন্ড গ্লো আরও হালকা করা হয়েছে */  
+    .hero-box.bruno-box::before {  
+      opacity: 0.4;  
+      filter: blur(10px);  
+    }  
+  
     .hero-box > * { position: relative; z-index: 1; }  
   
+    /* সাইবার সিকিউরিটি এক্সপার্ট লেখাটি হালকা বড় করা হয়েছে */  
     .hero-title{  
       font-family:"Orbitron", sans-serif;  
       font-weight:900;  
       text-transform:uppercase;  
       letter-spacing:1.4px;  
-      font-size:clamp(1.15rem, 2.9vw, 2.1rem);  
+      font-size:clamp(1.3rem, 3.2vw, 2.4rem); /* সাইজ হালকা বাড়ানো হয়েছে */  
       line-height:1.2;  
       white-space:nowrap;  
       background:linear-gradient(  
@@ -507,17 +523,16 @@
   
     .submit-btn i{ margin-right:8px; }  
   
-    /* ফুটার এক লাইনে রাখার জন্য আপডেট */  
     .footer{  
       margin-top:18px;  
       padding:10px 2px 0;  
       text-align:center;  
-      font-size:clamp(10px, 1.8vw, 13px); /* ছোট স্ক্রিনে ফন্ট সাইজ ছোট হবে যেন ১ লাইনে থাকে */  
+      font-size:clamp(10px, 1.8vw, 13px);  
       letter-spacing:.8px;  
       font-family:"Orbitron", sans-serif;  
       font-weight:800;  
       text-transform:uppercase;  
-      white-space: nowrap; /* টেক্সট ভেঙে নিচের লাইনে যাবে না */  
+      white-space: nowrap;  
       overflow: hidden;  
       text-overflow: ellipsis;  
     }  
@@ -575,7 +590,7 @@
       }  
   
       .hero-title{  
-        font-size:clamp(1rem, 4.8vw, 1.4rem);  
+        font-size:clamp(1.1rem, 5.2vw, 1.6rem);  
       }  
   
       .hero-subtitle{  
@@ -589,7 +604,7 @@
   
     @media (max-width: 420px){  
       .hero-title{  
-        font-size:.9rem;  
+        font-size:1rem;  
         letter-spacing:.8px;  
       }  
   
@@ -615,11 +630,11 @@
   
   <div class="container">  
     <div class="hero-container">  
-      <section class="hero-box">  
-        <div class="hero-title">CYBER SECURITY EXPERT</div>  
+      <section class="hero-box bruno-box">  
+        <div class="hero-subtitle">HEY I'M BRUNO</div>  
       </section>  
       <section class="hero-box">  
-        <div class="hero-subtitle">HEY I'M BRUNO</div>  
+        <div class="hero-title">CYBER SECURITY EXPERT</div>  
       </section>  
     </div>  
   
