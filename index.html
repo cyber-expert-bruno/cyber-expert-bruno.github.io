@@ -91,9 +91,33 @@
       animation:floatOrb 7s ease-in-out infinite alternate;  
     }  
   
-    .orb1{ width:260px; height:260px; background:var(--neon); top:30px; left:-50px; }  
-    .orb2{ width:280px; height:280px; background:var(--neon2); right:-70px; bottom:60px; animation-duration:9s; }  
-    .orb3{ width:200px; height:200px; background:var(--pink); top:50%; left:50%; transform:translateX(-50%); animation-duration:11s; opacity:0.14; }  
+    .orb1{  
+      width:260px;  
+      height:260px;  
+      background:var(--neon);  
+      top:30px;  
+      left:-50px;  
+    }  
+  
+    .orb2{  
+      width:280px;  
+      height:280px;  
+      background:var(--neon2);  
+      right:-70px;  
+      bottom:60px;  
+      animation-duration:9s;  
+    }  
+  
+    .orb3{  
+      width:200px;  
+      height:200px;  
+      background:var(--pink);  
+      top:50%;  
+      left:50%;  
+      transform:translateX(-50%);  
+      animation-duration:11s;  
+      opacity:0.14;  
+    }  
   
     @keyframes floatOrb{  
       from{transform:translateY(0) scale(1);}  
@@ -133,7 +157,8 @@
     }  
   
     .container{  
-      width:min(1040px, 92%);  
+      width:94%; /* পাশের গ্যাপ কমানো হয়েছে */  
+      max-width: 900px; /* কন্টেন্ট আরেকটু কেন্দ্রে আনার জন্য */  
       margin:0 auto;  
       position:relative;  
       z-index:2;  
@@ -147,6 +172,7 @@
       margin-top: 18px;  
     }  
   
+    /* প্রোফাইল পিকচার কন্টেইনার */  
     .profile-pic-center {  
       display: flex;  
       justify-content: center;  
@@ -154,6 +180,7 @@
       margin-bottom: 20px;  
     }  
   
+    /* গোল এবং নিওন গ্লোয়িং বর্ডার ইফেক্ট */  
     .round-profile {  
       width: 110px;  
       height: 110px;  
@@ -184,7 +211,8 @@
     }  
   
     .hero-box.bruno-small-box {  
-      width: 100%; /* পরিবর্তন: auto এর জায়গায় 100% করা হয়েছে */
+      width: auto;  
+      display: inline-flex;  
       padding: 10px 30px;  
       border-radius: 14px;  
       margin-top: -2px;  
@@ -231,6 +259,11 @@
       background-clip:text;  
       color:transparent;  
       animation:rgbText 5.5s linear infinite;  
+      text-shadow:  
+        0 0 10px rgba(0,255,195,0.16),  
+        0 0 18px rgba(0,217,255,0.12),  
+        0 0 24px rgba(255,79,216,0.08);  
+      filter:drop-shadow(0 0 10px rgba(0,255,195,0.14));  
     }  
   
     .hero-subtitle{  
@@ -256,6 +289,9 @@
       background-clip:text;  
       color:transparent;  
       animation:brunoGlow 4.5s linear infinite;  
+      text-shadow:  
+        0 0 8px rgba(0,255,195,0.2),  
+        0 0 15px rgba(0,217,255,0.15);  
     }  
   
     @keyframes rgbText{  
@@ -531,6 +567,9 @@
       background-clip:text;  
       color:transparent;  
       animation:rgbText 5.5s linear infinite;  
+      text-shadow:  
+        0 0 8px rgba(0,255,195,0.10),  
+        0 0 16px rgba(0,217,255,0.08);  
     }  
   
     @media (max-width: 820px){  
@@ -680,46 +719,55 @@
             <option>TikTok Disabled Account Recovery</option>  
             <option>TikTok Username / Login Issue</option>  
             <option>TikTok Verification / Security Guidance</option>  
+  
             <option>Facebook Disabled Account Recovery</option>  
             <option>Facebook Hacked Account Help</option>  
             <option>Facebook Page Access Issue</option>  
             <option>Facebook Business Manager Access Help</option>  
             <option>Facebook Login / Password Problem</option>  
+  
             <option>Instagram Disabled Account Recovery</option>  
             <option>Instagram Hacked Account Help</option>  
             <option>Instagram Login Issue</option>  
             <option>Instagram Username / Email Change Help</option>  
             <option>Instagram Appeal Guidance</option>  
+  
             <option>WhatsApp Account Banned Support</option>  
             <option>WhatsApp Verification Problem</option>  
             <option>WhatsApp Number / Access Issue</option>  
             <option>WhatsApp Business Account Help</option>  
             <option>WhatsApp Backup / Restore Guidance</option>  
+  
             <option>Gmail Account Recovery Help</option>  
             <option>Google Disabled / Locked Account Help</option>  
             <option>Google Verification Problem</option>  
             <option>Google Password Reset Support</option>  
             <option>YouTube Channel Access Problem</option>  
+  
             <option>YouTube Copyright / Strike Guidance</option>  
             <option>YouTube Suspended Channel Appeal Help</option>  
             <option>Telegram Account Access Issue</option>  
             <option>Telegram Login / Number Problem</option>  
             <option>Messenger Login / Recovery Help</option>  
+  
             <option>Twitter / X Account Recovery</option>  
             <option>Twitter / X Suspended Account Guidance</option>  
             <option>Snapchat Login / Recovery Help</option>  
             <option>LinkedIn Account Access Issue</option>  
             <option>Discord Account Recovery Help</option>  
+  
             <option>PayPal Account Access Problem</option>  
             <option>Binance Account Verification Help</option>  
             <option>Website Login Panel Issue</option>  
             <option>Domain / Hosting Access Problem</option>  
             <option>cPanel / Hosting Login Help</option>  
+  
             <option>Email Recovery / Access Help</option>  
             <option>2FA / Verification Code Problem</option>  
             <option>Security Review / Account Safety Check</option>  
             <option>Profile Recovery Assistance</option>  
             <option>Password Reset / Access Guidance</option>  
+  
             <option>Appeal Letter / Support Message Help</option>  
             <option>Platform Report / Complaint Guidance</option>  
             <option>Business Account Access Issue</option>  
