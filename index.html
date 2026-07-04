@@ -671,7 +671,7 @@ textarea{
     My Information
   </h2>
 
-  <div class="social-grid" style="margin-top: 0; padding-top: 0;">
+  <div class="social-grid">
     <a class="social-btn" href="https://www.facebook.com/share/1Gy2AHukpZ/" target="_blank">
       <i class="fa-brands fa-facebook-f"></i>
       <span>Facebook</span>
@@ -706,22 +706,38 @@ textarea{
 </div>
 
 <style>
-/* Modal Layout */
+/* Modal Overlay */
 .modal-overlay { display:none; position:fixed; inset:0; z-index:9999; background:rgba(4,16,26,0.9); backdrop-filter:blur(10px); align-items:center; justify-content:center; }
 .modal-card { background:#0a1727; padding:25px; border-radius:20px; border:1px solid #00ffc3; width:90%; max-width:350px; position:relative; }
 
 /* Fixed Close Button */
-.close-btn { position:absolute; top:5px; right:15px; font-size:32px; color:#ecfffa; cursor:pointer; z-index:10; line-height:1; }
-.close-btn:hover { color:#00ffc3; }
+.close-btn { position:absolute; top:2px; right:12px; font-size:32px; color:#00ffc3; cursor:pointer; z-index:10; line-height:1; }
 
-/* Modal Title */
-.modal-title { font-family:"Orbitron", sans-serif; color:#00ffc3; margin-bottom:20px; text-align:center; font-size:1.1rem; text-transform:uppercase; white-space:nowrap; padding-right:20px; }
+/* Modal Title - Using Orbitron Font */
+.modal-title { 
+    font-family: "Orbitron", sans-serif; 
+    color: #00ffc3; 
+    margin-bottom: 25px; 
+    text-align: center; 
+    font-size: 1.0rem; 
+    text-transform: uppercase; 
+    white-space: nowrap; 
+    padding-right: 25px; 
+}
 
-/* Clean Info Content */
-.info-content { display: flex; flex-direction: column; gap: 10px; }
-.info-content p { font-family:"Inter", sans-serif; color:#ecfffa; margin: 0; font-size:15px; display:flex; justify-content:space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
-.info-content p strong { font-weight:600; color:#00ffc3; }
-.info-content p span { font-weight:400; }
+/* Info Content - Uniform Orbitron Font and Same Color */
+.info-content { display: flex; flex-direction: column; gap: 12px; }
+.info-content p { 
+    font-family: "Orbitron", sans-serif; 
+    color: #00ffc3; 
+    margin: 0; 
+    font-size: 0.9rem; 
+    display: flex; 
+    justify-content: space-between; 
+    border-bottom: 1px solid rgba(0, 255, 195, 0.2); 
+    padding-bottom: 8px; 
+}
+.info-content p strong, .info-content p span { font-weight: 400; }
 </style>
 
 
