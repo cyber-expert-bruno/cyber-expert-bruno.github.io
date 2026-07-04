@@ -711,7 +711,7 @@ textarea{
 .modal-card { background:#0a1727; padding:25px; border-radius:20px; border:1px solid #00ffc3; width:90%; max-width:350px; position:relative; }
 
 /* Fixed Close Button */
-.close-btn { position:absolute; top:2px; right:12px; font-size:32px; color:#00ffc3; cursor:pointer; z-index:10; line-height:1; }
+.close-btn { position:absolute; top:5px; right:15px; font-size:32px; color:#00ffc3; cursor:pointer; z-index:10; line-height:1; }
 
 /* Modal Title - Using Orbitron Font */
 .modal-title { 
@@ -719,27 +719,28 @@ textarea{
     color: #00ffc3; 
     margin-bottom: 25px; 
     text-align: center; 
-    font-size: 1.0rem; 
+    font-size: 1.1rem; 
     text-transform: uppercase; 
     white-space: nowrap; 
     padding-right: 25px; 
 }
 
-/* Info Content - Uniform Orbitron Font and Same Color */
+/* Info Content - Orbitron Font and Default White Color */
 .info-content { display: flex; flex-direction: column; gap: 12px; }
 .info-content p { 
     font-family: "Orbitron", sans-serif; 
-    color: #00ffc3; 
+    color: #ffffff; /* সাদা কালার */
     margin: 0; 
     font-size: 0.9rem; 
     display: flex; 
     justify-content: space-between; 
-    border-bottom: 1px solid rgba(0, 255, 195, 0.2); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
     padding-bottom: 8px; 
 }
-.info-content p strong, .info-content p span { font-weight: 400; }
+/* Label এবং Value সব সাদা কালারে */
+.info-content p strong { font-weight: 400; color: #ffffff; }
+.info-content p span { font-weight: 400; color: #ffffff; }
 </style>
-
 
     <section class="panel">
       <h2 class="panel-title problem-heading">
