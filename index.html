@@ -34,17 +34,8 @@
 html{ scroll-behavior:smooth; }
 
 body{
-  min-height:100vh;
-  font-family:"Inter", sans-serif;
-  color:var(--text);
-  overflow-x:hidden;
   background:
-    radial-gradient(circle at 10% 10%, rgba(0,255,195,0.16), transparent 26%),
-    radial-gradient(circle at 90% 15%, rgba(0,217,255,0.18), transparent 28%),
-    radial-gradient(circle at 80% 85%, rgba(157,92,255,0.16), transparent 26%),
-    radial-gradient(circle at 25% 75%, rgba(255,79,216,0.12), transparent 24%),
-    linear-gradient(135deg, var(--bg1), var(--bg2) 45%, var(--bg3));
-  position:relative;
+  linear-gradient(135deg, var(--bg1), var(--bg2) 45%, var(--bg3));
 }
 
 .grid-bg{
@@ -85,7 +76,7 @@ body{
   filter:blur(46px);
   pointer-events:none;
   z-index:0;
-  opacity:0.22;
+  opacity:0;
   animation:floatOrb 7s ease-in-out infinite alternate;
 }
 
@@ -128,7 +119,7 @@ body{
   width:100%;
   height:100%;
   z-index:0;
-  opacity:0.18;
+  opacity:0.05;
   pointer-events:none;
 }
 
@@ -300,24 +291,30 @@ body{
 }    
 
 .panel{    
-.panel{
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--line);
-  background:rgba(10,16,30,0.96);
-  border-radius:24px;
-  padding:22px;
-  box-shadow:
-    0 18px 55px rgba(0,0,0,0.24),
-    0 0 0 1px rgba(255,255,255,0.02) inset;
-  backdrop-filter:none;
-  -webkit-backdrop-filter:none;
-  margin-top:20px;
-}
+  position:relative;    
+  overflow:hidden;    
+  border:1px solid var(--line);    
+  background:var(--card);    
+  border-radius:24px;    
+  padding:22px;    
+  box-shadow:    
+    0 18px 55px rgba(0,0,0,0.24),    
+    0 0 0 1px rgba(255,255,255,0.02) inset,    
+    var(--shadow);    
+  backdrop-filter:blur(14px);    
+  margin-top:20px;    
+}    
 
-.panel::before{
-  display:none;
-}
+.panel::before{    
+  content:"";    
+  position:absolute;    
+  inset:auto auto -40px -40px;    
+  width:140px;    
+  height:140px;    
+  border-radius:50%;    
+  background:radial-gradient(circle, rgba(0,255,195,0.16), transparent 70%);    
+  pointer-events:none;    
+}    
 
 .panel-title{    
   font-family:"Orbitron", sans-serif;    
@@ -345,54 +342,58 @@ body{
   filter:drop-shadow(0 0 8px rgba(0,255,195,0.35));    
 }    
 
-.social-btn{
-  position:relative;
-  overflow:hidden;
-  isolation:isolate;
-  text-decoration:none;
-  color:var(--text);
-  border:1px solid rgba(255,255,255,0.08);
-  background:#182131;
-  border-radius:18px;
-  padding:17px 14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  min-height:68px;
-  transition:0.25s ease;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.02);
-}
+.social-grid{    
+  display:grid;    
+  grid-template-columns:repeat(2, minmax(0, 1fr));    
+  gap:14px;    
+  max-width:700px;    
+  margin:0 auto;    
+}    
 
-.social-btn::before{
-  display:none;
-}
+.social-btn{    
+  position:relative;    
+  overflow:hidden;    
+  text-decoration:none;    
+  color:var(--text);    
+  border:1px solid var(--line-2);    
+  background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));    
+  border-radius:18px;    
+  padding:17px 14px;    
+  display:flex;    
+  align-items:center;    
+  justify-content:center;    
+  gap:12px;    
+  min-height:68px;    
+  transition:0.25s ease;    
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);    
+}    
 
-.social-btn:hover{
-  transform:translateY(-2px);
-  border-color:rgba(255,255,255,0.12);
-  background:#1b2637;
-  box-shadow:none;
-}
+.social-btn::before{    
+  content:"";    
+  position:absolute;    
+  inset:0;    
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,0.05), transparent);    
+  transform:translateX(-100%);    
+  transition:0.5s ease;    
+}    
 
-.social-btn i{
-  font-size:1.4rem;
-  color:var(--neon);
-  width:28px;
-  text-align:center;
-  filter:none;
-  text-shadow:none;
-}
+.social-btn:hover::before{ transform:translateX(100%); }    
 
-/* TikTok icon - No Glow */
-.fa-tiktok{
-  color:var(--neon) !important;
-  filter:none !important;
-  text-shadow:none !important;
-  box-shadow:none !important;
-  background:transparent !important;
-  opacity:1;
-}
+.social-btn:hover{    
+  transform:translateY(-4px);    
+  border-color:rgba(0,255,195,0.25);    
+  box-shadow:0 0 24px rgba(0,255,195,0.12);    
+  background:linear-gradient(180deg, rgba(0,255,195,0.08), rgba(255,255,255,0.03));    
+}    
+
+.social-btn i{    
+  font-size:1.4rem;    
+  color:var(--neon);    
+  width:28px;    
+  text-align:center;    
+  filter:drop-shadow(0 0 8px rgba(0,255,195,0.35));    
+}    
+
 .social-btn span{    
   font-weight:700;    
   font-size:15px;    
@@ -677,7 +678,7 @@ textarea{
           <span>TikTok</span>
         </a>
 
-        <a class="social-btn" href="https://wa.me/" target="_blank">
+        <a class="social-btn" href="https://wa.me/8801347344027" target="_blank">
           <i class="fa-brands fa-whatsapp"></i>
           <span>WhatsApp</span>
         </a>
