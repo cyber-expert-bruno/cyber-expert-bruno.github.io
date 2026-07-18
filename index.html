@@ -819,6 +819,144 @@ ${problem}`;
       window.open(whatsappURL, "_blank");
 });
 
+<!-- MY INFO MODAL -->
+<div id="infoModal" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(8px);
+justify-content:center;
+align-items:center;
+z-index:99999;
+">
+
+<div style="
+width:92%;
+max-width:420px;
+background:linear-gradient(180deg,#08121d,#101a28);
+border:2px solid #00ffd0;
+border-radius:30px;
+padding:28px;
+box-shadow:
+0 0 30px #00ffd055,
+0 0 80px #00ffd022;
+position:relative;
+overflow:hidden;
+">
+
+<div style="
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at top,#00ffd022,transparent 55%),
+radial-gradient(circle at bottom,#00ffd011,transparent 60%);
+pointer-events:none;
+"></div>
+
+<div style="position:relative;z-index:2;">
+
+<div style="display:flex;align-items:center;margin-bottom:18px;">
+<div style="
+width:70px;
+height:70px;
+border-radius:18px;
+background:#111d2c;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
+margin-right:18px;">🪪</div>
+
+<div>
+<div style="color:#00ffd0;font-size:15px;font-weight:700;">Name</div>
+<div style="font-size:18px;color:white;">Rahim Hasan</div>
+</div>
+</div>
+
+<hr style="border-color:#ffffff22;margin:14px 0;">
+
+<div style="display:flex;align-items:center;margin-bottom:18px;">
+<div style="
+width:70px;
+height:70px;
+border-radius:18px;
+background:#111d2c;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
+margin-right:18px;">📍</div>
+
+<div>
+<div style="color:#00ffd0;font-size:15px;font-weight:700;">Address</div>
+<div style="font-size:18px;color:white;">Sylhet Sadar</div>
+</div>
+</div>
+
+<hr style="border-color:#ffffff22;margin:14px 0;">
+
+<div style="display:flex;align-items:center;margin-bottom:18px;">
+<div style="
+width:70px;
+height:70px;
+border-radius:18px;
+background:#111d2c;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
+margin-right:18px;">🎓</div>
+
+<div>
+<div style="color:#00ffd0;font-size:15px;font-weight:700;">Education</div>
+<div style="font-size:18px;color:white;">Inter 1st Year</div>
+</div>
+</div>
+
+<hr style="border-color:#ffffff22;margin:14px 0;">
+
+<div style="display:flex;align-items:center;">
+<div style="
+width:70px;
+height:70px;
+border-radius:18px;
+background:#111d2c;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
+margin-right:18px;">🎂</div>
+
+<div>
+<div style="color:#00ffd0;font-size:15px;font-weight:700;">Age</div>
+<div style="font-size:18px;color:white;">16 Years</div>
+</div>
+</div>
+
+<button onclick="closeInfo()" style="
+margin-top:28px;
+width:100%;
+padding:16px;
+border:none;
+border-radius:50px;
+font-size:22px;
+font-weight:bold;
+background:linear-gradient(90deg,#00ffd0,#00d9ff);
+cursor:pointer;">
+Close
+</button>
+
+</div>
+</div>
+</div>
+
 <script>
 function openInfo(){
 document.getElementById("infoModal").style.display="flex";
@@ -827,33 +965,14 @@ document.getElementById("infoModal").style.display="flex";
 function closeInfo(){
 document.getElementById("infoModal").style.display="none";
 }
+
+window.onclick=function(e){
+const modal=document.getElementById("infoModal");
+if(e.target===modal){
+closeInfo();
+}
+}
 </script>
 
-<div id="infoModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);justify-content:center;align-items:center;z-index:9999;">
-
-<div style="width:90%;max-width:360px;background:#131b2c;border:3px solid #00ffc3;border-radius:28px;padding:30px 25px;box-shadow:0 0 25px rgba(0,255,195,.4);position:relative;">
-
-<div style="font-size:22px;font-weight:800;color:#ffffff;line-height:1.8;">
-
-<div>🪪 <b>Name:</b> Rahim Hasan</div>
-
-<div>📍 <b>Address:</b> Sylhet Sadar</div>
-
-<div>🎓 <b>Education:</b> Inter 1st Year</div>
-
-<div>🎂 <b>Age:</b> 16 Years</div>
-
-</div>
-
-<div style="text-align:center;margin-top:25px;">
-<button onclick="closeInfo()" style="padding:12px 40px;background:#00ffc3;color:#000;border:none;border-radius:50px;font-size:18px;font-weight:bold;cursor:pointer;">
-Close
-</button>
-</div>
-
-</div>
-
-</div>
 </body>
 </html>
- 
