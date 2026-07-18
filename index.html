@@ -344,7 +344,7 @@ body{
 
 .social-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr 1fr;
     gap:15px;
 }
 
@@ -630,39 +630,25 @@ textarea{
       </h2>
 
       <div class="social-grid">
-  <a c<div class="social-grid">
-
-  <a class="social-btn" href="https://www.facebook.com/share/1HLVnAtnoT/" target="_blank" rel="noopener noreferrer">
+  <a class="social-btn" href="https://www.facebook.com/share/1HLVnAtnoT/" target="_blank">
     <i class="fa-brands fa-facebook-f"></i>
     <span>Facebook</span>
   </a>
 
-  <a class="social-btn" href="https://www.tiktok.com/@ruxax" target="_blank" rel="noopener noreferrer">
+  <a class="social-btn" href="https://www.tiktok.com/@ruxax" target="_blank">
     <i class="fa-brands fa-tiktok"></i>
     <span>TikTok</span>
   </a>
 
-  <a class="social-btn" href="https://www.instagram.com/mahin_bbz/" target="_blank" rel="noopener noreferrer">
+  <a class="social-btn" href="https://www.instagram.com/mahin_bbz/" target="_blank">
     <i class="fa-brands fa-instagram"></i>
     <span>Instagram</span>
   </a>
 
-  <a class="social-btn" href="javascript:void(0);" onclick="alert(`╔══════════════════════════╗
-
-        👤 MY INFO
-
-🪪 Name      : Rahim Hasan
-📍 Address   : Sylhet Sadar
-🎓 Education : Inter 1st Year
-🎂 Age       : 16 Years
-
-        [ Close ]
-
-╚══════════════════════════╝`)">
+  <a class="social-btn" href="javascript:void(0)" onclick="openInfo()">
     <i class="fa-solid fa-user"></i>
     <span>My Info</span>
   </a>
-
 </div>
     </section>
 
@@ -831,7 +817,16 @@ ${problem}`;
       const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     
       window.open(whatsappURL, "_blank");
-    });
+});
+
+function openInfo(){
+    alert(`👤 MY INFO
+
+🪪 Name      : Rahim Hasan
+📍 Address   : Sylhet Sadar
+🎓 Education : Inter 1st Year
+🎂 Age       : 16 Years`);
+}
   </script>
 </body>
 </html>
