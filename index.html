@@ -169,12 +169,14 @@ body{
   margin-top: 5px;   
 }    
 
-.profile-pic-center {    
-  display: flex;    
-  justify-content: center;    
-  width: 100%;    
-  margin-bottom: 5px;   
-}    
+.profile-pic-center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    width:100%;
+    margin-bottom:8px;
+}
 
 .round-profile{
     width:130px;
@@ -206,6 +208,25 @@ body{
     object-fit:cover;
     display:block;
 }
+
+.side-box{
+    width:65px;
+    height:65px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,255,195,.08);
+    border:1px solid rgba(0,255,195,.25);
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 15px rgba(0,255,195,.18);
+}
+
+.side-box i{
+    font-size:30px;
+    color:#00ffc3;
+    text-shadow:0 0 12px #00ffc3;
+}    
 
 @keyframes rgbBorder{
     0%{
@@ -651,9 +672,19 @@ textarea{
   <div class="container">
     <div class="hero-container">
       <div class="profile-pic-center">
+
+    <div class="side-box">
+        <i class="fa-solid fa-shield-halved"></i>
+    </div>
+
     <div class="round-profile">
-    <img src="Picsart_26-07-20_02-36-53-570.jpg" alt="Bruno Profile">
-</div>
+        <img src="Picsart_26-07-20_02-36-53-570.jpg" alt="Bruno Profile">
+    </div>
+
+    <div class="side-box">
+        <i class="fa-solid fa-microchip"></i>
+    </div>
+
 </div>
       <section class="hero-box">
         <div class="hero-title">CYBER SECURITY EXPERT</div>
