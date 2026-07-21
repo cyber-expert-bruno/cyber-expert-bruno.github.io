@@ -6,7 +6,7 @@
   <title>Cyber Security Expert - Bruno</title>  
   <link rel="preconnect" href="https://fonts.googleapis.com">  
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>  
   <style>  
     *{  
@@ -15,20 +15,15 @@
       box-sizing:border-box;  
     }    
     :root{  
-      /* LUXURY DEEP CYBER PALETTE */
-      --bg1: #030712;  
-      --bg2: #0b1329;  
-      --bg3: #111c38;  
-      --card: rgba(13, 22, 45, 0.75);  
-      --line: rgba(0, 240, 255, 0.25);  
-      --line-2: rgba(255, 255, 255, 0.08);  
-      --text: #f0f6ff;  
-      --muted: #94a3b8;  
-      --neon: #00f0ff;  
-      --neon2: #0088ff;  
-      --pink: #ff0055;  
-      --purple: #7000ff;  
-      --shadow: 0 0 35px rgba(0, 240, 255, 0.15);  
+      /* NEW HIGH-TECH EMERALD CYBER THEME */
+      --bg-dark: #02090d;  
+      --card-bg: rgba(4, 18, 24, 0.88);  
+      --border-color: rgba(0, 255, 170, 0.22);  
+      --text: #e6fff7;  
+      --text-muted: #7ca398;  
+      --accent-green: #00ffaa;  
+      --accent-cyan: #00e1ff;  
+      --glow-green: rgba(0, 255, 170, 0.3);  
     }  
 
     html{ scroll-behavior:smooth; }
@@ -38,117 +33,18 @@
       font-family:"Inter", sans-serif;
       color:var(--text);
       overflow-x:hidden;
-      background:
-        radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.12), transparent 30%),
-        radial-gradient(circle at 85% 20%, rgba(112, 0, 255, 0.15), transparent 30%),
-        radial-gradient(circle at 75% 80%, rgba(255, 0, 85, 0.12), transparent 30%),
-        linear-gradient(135deg, var(--bg1), var(--bg2) 50%, var(--bg3));
+      background: var(--bg-dark);
       position:relative;
     }
 
-    .grid-bg{
-      position:fixed;
-      inset:0;
-      background-image:
-        linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
-      background-size:40px 40px;
-      animation:gridMove 12s linear infinite;
-      pointer-events:none;
-      z-index:0;
-      mask-image: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0.2));
-    }
-
-    @keyframes gridMove{
-      from{transform:translateY(0);}
-      to{transform:translateY(40px);}
-    }
-
-    .noise{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:0;
-      opacity:0.03;
-      background-image:
-        radial-gradient(circle at 25% 25%, #fff 0.6px, transparent 0.7px),
-        radial-gradient(circle at 75% 45%, #fff 0.6px, transparent 0.7px);
-      background-size: 100px 100px;
-    }
-
-    .orb{
-      position:fixed;
-      border-radius:50%;
-      filter:blur(60px);
-      pointer-events:none;
-      z-index:0;
-      opacity:0.25;
-      animation:floatOrb 8s ease-in-out infinite alternate;
-    }
-
-    .orb1{
-      width:300px;
-      height:300px;
-      background:var(--neon);
-      top:-50px;
-      left:-50px;
-    }
-
-    .orb2{
-      width:320px;
-      height:320px;
-      background:var(--purple);
-      right:-80px;
-      bottom:-50px;
-      animation-duration:10s;
-    }
-
-    .orb3{
-      width:220px;
-      height:220px;
-      background:var(--pink);
-      top:45%;
-      left:50%;
-      transform:translateX(-50%);
-      animation-duration:12s;
-      opacity:0.15;
-    }
-
-    @keyframes floatOrb{
-      from{transform:translateY(0) scale(1);}
-      to{transform:translateY(30px) scale(1.1);}
-    }
-
-    #matrixCanvas{
-      position:fixed;
-      inset:0;
-      width:100%;
-      height:100%;
-      z-index:0;
-      opacity:0.15;
-      pointer-events:none;
-    }
-
-    .scanlines{
-      position:fixed;
-      inset:0;
-      z-index:0;
-      pointer-events:none;
-      opacity:0.06;
-      background:
-        repeating-linear-gradient(
-          to bottom,
-          rgba(255,255,255,0.08) 0px,
-          rgba(255,255,255,0.08) 1px,
-          transparent 2px,
-          transparent 4px
-        );
-      animation:scanMove 5s linear infinite;
-    }
-
-    @keyframes scanMove{
-      from{transform:translateY(0);}
-      to{transform:translateY(20px);}
+    /* NEW ANIMATION CANVAS: DIGITAL CIRCUIT & NODE HACKING */
+    #cyberCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
     }
 
     .container{
@@ -179,10 +75,8 @@
       padding:3px;
       border-radius:50%;
       overflow:hidden;
-      background: linear-gradient(135deg, var(--neon), var(--purple), var(--pink));  
-      background-size:200% 200%;  
-      animation:gradientFlow 4s ease infinite;
-      box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+      background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));  
+      box-shadow: 0 0 25px var(--glow-green);
     }
 
     .round-profile img{
@@ -196,14 +90,11 @@
     .hero-box {
       position: relative;
       overflow: hidden;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: rgba(13, 22, 45, 0.85);
-      backdrop-filter: blur(16px);
-      box-shadow:
-        0 15px 45px rgba(0,0,0,0.4),
-        0 0 0 1px rgba(255,255,255,0.05) inset,
-        var(--shadow);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 15px rgba(0, 255, 170, 0.05);
       padding: 20px 24px;
       display: flex;
       justify-content: center;
@@ -216,22 +107,8 @@
       width: 60%;
       margin: 0 auto;
       padding: 10px 30px;
-      border-radius: 14px;
+      border-radius: 12px;
       margin-top: -2px;
-    }
-
-    .hero-box::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      background: linear-gradient(90deg,
-        rgba(0, 240, 255, 0.2),
-        rgba(112, 0, 255, 0.2),
-        rgba(255, 0, 85, 0.2)
-      );
-      filter: blur(15px);
-      z-index: 0;
-      opacity: 0.8;
     }
 
     .hero-box > * { position: relative; z-index: 1; }
@@ -240,17 +117,12 @@
       font-family:"Orbitron", sans-serif;
       font-weight:900;
       text-transform:uppercase;
-      letter-spacing:1.4px;
+      letter-spacing:1.5px;
       font-size:clamp(1.2rem, 3.2vw, 2.4rem);
       line-height:1.2;
       white-space:nowrap;
-      background: linear-gradient(90deg, #ffffff, var(--neon), #ffffff);
-      background-size:200% 100%;
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      animation:gradientFlow 4s ease infinite;
-      filter:drop-shadow(0 0 12px rgba(0, 240, 255, 0.4));
+      color: #ffffff;
+      text-shadow: 0 0 15px var(--accent-green);
     }
 
     .hero-subtitle{
@@ -263,33 +135,19 @@
       white-space:nowrap;
       display: block;
       text-align: center;
-      background: linear-gradient(90deg, var(--neon), #ffffff, var(--pink));
-      background-size:200% 100%;
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      animation:gradientFlow 5s ease infinite;
-      filter:drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
-    }
-
-    @keyframes gradientFlow{
-      0%{ background-position:0% 50%; }
-      50%{ background-position:100% 50%; }
-      100%{ background-position:0% 50%; }
+      color: var(--accent-cyan);
+      text-shadow: 0 0 12px var(--accent-cyan);
     }
 
     .panel{
       position:relative;
       overflow:hidden;
-      border:1px solid var(--line);
-      background:var(--card);
-      border-radius:24px;
+      border:1px solid var(--border-color);
+      background:var(--card-bg);
+      border-radius:20px;
       padding:22px;
-      box-shadow:
-        0 18px 55px rgba(0,0,0,0.5),
-        0 0 0 1px rgba(255,255,255,0.05) inset,
-        var(--shadow);
-      backdrop-filter:blur(16px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+      backdrop-filter:blur(12px);
       margin-top:20px;
     }
 
@@ -314,9 +172,9 @@
     }
 
     .panel-title i{
-      color:var(--neon);
+      color:var(--accent-green);
       font-size:1rem;
-      filter:drop-shadow(0 0 10px var(--neon));
+      filter:drop-shadow(0 0 8px var(--accent-green));
     }
 
     .social-grid{
@@ -332,32 +190,26 @@
       justify-content:center;
       gap:12px;
       padding:18px;
-      border-radius:18px;
-      background: rgba(255, 255, 255, 0.03);
-      border:1px solid rgba(255, 255, 255, 0.08);
+      border-radius:14px;
+      background: rgba(0, 255, 170, 0.03);
+      border:1px solid rgba(0, 255, 170, 0.15);
       color:#fff;
       text-decoration:none;
       transition: all 0.3s ease;
-      box-shadow:0 6px 20px rgba(0,0,0,0.3);
     }
 
     .social-btn:hover{
       transform:translateY(-3px);
-      background: rgba(0, 240, 255, 0.08);
-      border-color:var(--neon);
-      box-shadow:0 0 25px rgba(0, 240, 255, 0.25);
+      background: rgba(0, 255, 170, 0.1);
+      border-color:var(--accent-green);
+      box-shadow:0 0 20px var(--glow-green);
     }
 
     .social-btn i{
       font-size:22px;
-      color:var(--neon);
+      color:var(--accent-green);
       width:22px;
       text-align:center;
-      transition: 0.3s;
-    }
-
-    .social-btn:hover i{
-      transform: scale(1.15);
     }
 
     .social-btn span{
@@ -383,7 +235,7 @@
 
     label{
       font-size:13.5px;
-      color:#e2e8f0;
+      color:#b3d9ce;
       font-weight:700;
       letter-spacing:.25px;
     }
@@ -392,27 +244,28 @@
       width:100%;
       border:none;
       outline:none;
-      border-radius:14px;
+      border-radius:12px;
       padding:15px 16px;
-      background: rgba(0, 0, 0, 0.4);
-      border:1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(1, 10, 15, 0.7);
+      border:1px solid rgba(0, 255, 170, 0.2);
       color:var(--text);
       font-size:15px;
+      font-family: "Fira Code", monospace;
       transition:0.25s ease;
     }
 
     input::placeholder, textarea::placeholder{
-      color:#64748b;
+      color:#426b60;
     }
 
     input:focus, select:focus, textarea:focus{
-      border-color:var(--neon);
-      box-shadow:0 0 15px rgba(0, 240, 255, 0.2);
-      background: rgba(0, 0, 0, 0.6);
+      border-color:var(--accent-green);
+      box-shadow:0 0 15px rgba(0, 255, 170, 0.25);
+      background: rgba(1, 10, 15, 0.9);
     }
 
     select option{
-      background:#0b1329;
+      background:#02090d;
       color:#ffffff;
     }
 
@@ -428,21 +281,20 @@
       border:none;
       outline:none;
       padding:16px 20px;
-      border-radius:16px;
+      border-radius:12px;
       font-size:16px;
       font-weight:800;
       cursor:pointer;
-      color:#000000;
-      background: linear-gradient(90deg, var(--neon), #00aaff, var(--neon));
-      background-size:200% 100%;
+      color:#02090d;
+      background: var(--accent-green);
       transition:0.3s ease;
-      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+      box-shadow: 0 0 20px var(--glow-green);
     }
 
     .submit-btn:hover{
       transform:translateY(-2px);
-      box-shadow: 0 15px 40px rgba(0, 240, 255, 0.5);
-      background-position: 100% 0;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 30px rgba(0, 225, 255, 0.5);
     }
 
     .submit-btn i{ margin-right:8px; font-size:18px; }
@@ -454,7 +306,7 @@
     @media (max-width: 640px){
       .hero-box {
         padding: 16px 14px;
-        border-radius: 16px;
+        border-radius: 14px;
       }
 
       .round-profile {
@@ -469,7 +321,7 @@
 
       .panel{
         padding:18px;
-        border-radius:20px;
+        border-radius:16px;
       }
 
       .social-grid{
@@ -523,13 +375,8 @@
   </style>  
 </head>  
 <body>  
-  <div class="grid-bg"></div>  
-  <div class="scanlines"></div>  
-  <div class="noise"></div>  
-  <div class="orb orb1"></div>  
-  <div class="orb orb2"></div>  
-  <div class="orb orb3"></div>  
-  <canvas id="matrixCanvas"></canvas>    
+  <!-- NEW ANIMATION CANVAS -->
+  <canvas id="cyberCanvas"></canvas>    
 
   <div class="container">  
     <div class="hero-container">  
@@ -662,8 +509,9 @@
     </section>
   </div>    
 
+  <!-- NEW DIGITAL NETWORK & CIRCUIT ANIMATION SCRIPT -->
   <script>  
-    const canvas = document.getElementById("matrixCanvas");  
+    const canvas = document.getElementById("cyberCanvas");  
     const ctx = canvas.getContext("2d");  
       
     function resizeCanvas(){  
@@ -673,38 +521,57 @@
     resizeCanvas();  
     window.addEventListener("resize", resizeCanvas);  
       
-    const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+-<>/{}[]";  
-    const fontSize = 16;  
-    let columns = Math.floor(window.innerWidth / fontSize);  
-    let drops = Array(columns).fill(1);  
-      
-    function resetMatrix(){  
-      columns = Math.floor(window.innerWidth / fontSize);  
-      drops = Array(columns).fill(1);  
-    }  
-    window.addEventListener("resize", resetMatrix);  
-      
-    function drawMatrix(){  
-      ctx.fillStyle = "rgba(3, 7, 18, 0.08)";  
-      ctx.fillRect(0, 0, canvas.width, canvas.height);  
-      
-      for(let i = 0; i < drops.length; i++){  
-        const char = chars.charAt(Math.floor(Math.random() * chars.length));  
-        const x = i * fontSize;  
-        const y = drops[i] * fontSize;  
-      
-        ctx.fillStyle = "#00f0ff";  
-        ctx.font = fontSize + "px monospace";  
-        ctx.fillText(char, x, y);  
-      
-        if(y > canvas.height && Math.random() > 0.975){  
-          drops[i] = 0;  
-        }  
-        drops[i]++;  
-      }  
-    }  
-      
-    setInterval(drawMatrix, 30);  
+    // Create particles (Nodes)
+    const nodes = [];
+    const nodeCount = 60;
+
+    for(let i = 0; i < nodeCount; i++) {
+      nodes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 1.2,
+        vy: (Math.random() - 0.5) * 1.2,
+        radius: Math.random() * 2 + 1
+      });
+    }
+
+    function drawCircuit() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw Nodes and Lines
+      for(let i = 0; i < nodes.length; i++) {
+        let node = nodes[i];
+        node.x += node.vx;
+        node.y += node.vy;
+
+        if(node.x < 0 || node.x > canvas.width) node.vx *= -1;
+        if(node.y < 0 || node.y > canvas.height) node.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0, 255, 170, 0.7)";
+        ctx.fill();
+
+        // Connect nearby nodes
+        for(let j = i + 1; j < nodes.length; j++) {
+          let node2 = nodes[j];
+          let dist = Math.hypot(node.x - node2.x, node.y - node2.y);
+
+          if(dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(node.x, node.y);
+            ctx.lineTo(node2.x, node2.y);
+            ctx.strokeStyle = `rgba(0, 255, 170, ${1 - dist / 120})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(drawCircuit);
+    }
+
+    drawCircuit();
       
     const form = document.getElementById("supportForm");  
     const whatsappNumber = "8801347344027";  
