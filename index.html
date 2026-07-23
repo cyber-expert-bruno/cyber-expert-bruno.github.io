@@ -6,450 +6,383 @@
   <title>Cyber Security Expert - Bruno</title>  
   <link rel="preconnect" href="https://fonts.googleapis.com">  
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>  
+  
   <style>  
-    *{  
-      margin:0;  
-      padding:0;  
-      box-sizing:border-box;  
+    * {  
+      margin: 0;  
+      padding: 0;  
+      box-sizing: border-box;  
     }    
-    :root{  
-      /* GRADIENT COLOR PALETTE */
-      --cyan: #00d9ff;  
-      --purple: #9d5cff;  
-      --pink: #ff4fd8;  
-      --gradient-primary: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
-      --bg-dark: #070913;  
-      --card-bg: rgba(14, 18, 36, 0.85);  
-      --border: rgba(0, 217, 255, 0.25);  
-      --text: #f0f4ff;  
-      --text-muted: #8c9bb4;  
+    :root {  
+      --cyan: #00f0ff;  
+      --purple: #7000ff;  
+      --pink: #ff007b;  
+      --bg-dark: #030712;  
+      --card-bg: rgba(15, 23, 42, 0.7);  
+      --card-border: rgba(255, 255, 255, 0.08);  
+      --gradient-text: linear-gradient(135deg, var(--cyan), var(--purple), var(--pink));  
+      --gradient-btn: linear-gradient(90deg, #00f0ff, #7000ff, #ff007b);  
+      --text: #f8fafc;  
+      --text-muted: #94a3b8;  
     }  
 
-    html{ scroll-behavior:smooth; }
+    html { scroll-behavior: smooth; }
 
-    body{
-      min-height:100vh;
-      font-family:"Inter", sans-serif;
-      color:var(--text);
-      overflow-x:hidden;
+    body {
+      min-height: 100vh;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
       background: var(--bg-dark);
-      position:relative;
+      position: relative;
     }
 
-    /* DIGITAL CIRCUIT ANIMATION CANVAS */
-    #cyberCanvas {
+    /* INTERACTIVE CANVAS ANIMATION */
+    #bgCanvas {
       position: fixed;
       inset: 0;
       width: 100%;
       height: 100%;
       z-index: 0;
-      pointer-events: none;
+      pointer-events: auto;
     }
 
-    .container{
-      width:min(1040px, 92%);
-      margin:0 auto;
-      position:relative;
-      z-index:2;
-      padding:10px 0 42px;
+    .container {
+      width: min(900px, 92%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      padding: 20px 0 50px;
     }
 
+    /* PROFILE & HERO SECTION */
     .hero-container {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-top: 5px;
+      align-items: center;
+      gap: 12px;
+      margin-top: 10px;
     }
 
-    .profile-pic-center {
-      display: flex;
-      justify-content: center;
+    .profile-wrap {
+      position: relative;
+      padding: 4px;
+      border-radius: 50%;
+      background: var(--gradient-text);
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+      animation: pulseGlow 4s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
+      100% { box-shadow: 0 0 40px rgba(255, 0, 123, 0.4); }
+    }
+
+    .round-profile {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #030712;
+    }
+
+    .round-profile img {
       width: 100%;
-      margin-bottom: 5px;
-    }
-
-    .round-profile{
-      width:130px;
-      height:130px;
-      padding:3px;
-      border-radius:50%;
-      overflow:hidden;
-      background: var(--gradient-primary);  
-    }
-
-    .round-profile img{
-      width:100%;
-      height:100%;
-      border-radius:50%;
-      object-fit:cover;
-      display:block;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .hero-box {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      border-radius: 16px;
+      padding: 16px 20px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-box.small-box {
+      width: min(400px, 100%);
+      padding: 10px 20px;
+    }
+
+    .hero-title {
+      font-family: "Orbitron", sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: clamp(1.1rem, 3.5vw, 2.1rem);
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-family: "Orbitron", sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* PANELS & CARDS */
+    .panel {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      border-radius: 20px;
+      padding: 24px;
+      margin-top: 22px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .panel-title {
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-transform: uppercase;
+    }
+
+    .panel-title i {
+      color: var(--cyan);
+      font-size: 1.1rem;
+    }
+
+    /* SOCIAL BUTTONS */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      padding: 20px 24px;
+    }
+
+    .social-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-btn);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    .social-btn > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+      border-color: transparent;
+      box-shadow: 0 10px 20px rgba(0, 240, 255, 0.2);
+    }
+
+    .social-btn:hover::before {
+      opacity: 0.15;
+    }
+
+    .social-btn i {
+      font-size: 20px;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* FORM STYLES */
+    form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .input-wrap {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 13.5px;
+      font-weight: 700;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 0.5px;
+    }
+
+    input, select, textarea {
       width: 100%;
-    }
-
-    .hero-box.bruno-small-box {
-      width: 60%;
-      margin: 0 auto;
-      padding: 10px 30px;
+      outline: none;
       border-radius: 12px;
-      margin-top: -2px;
-    }
-
-    .hero-box > * { position: relative; z-index: 1; }
-
-    .hero-title{
-      font-family:"Orbitron", sans-serif;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:1.5px;
-      font-size:clamp(1.2rem, 3.2vw, 2.4rem);
-      line-height:1.2;
-      white-space:nowrap;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero-subtitle{
-      font-family:"Orbitron", sans-serif;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing: 1.2px;
-      font-size:clamp(0.85rem, 2.2vw, 1.2rem);
-      line-height:1.2;
-      white-space:nowrap;
-      display: block;
-      text-align: center;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .panel{
-      position:relative;
-      overflow:hidden;
-      border:1px solid var(--border);
-      background:var(--card-bg);
-      border-radius:20px;
-      padding:22px;
-      backdrop-filter:blur(12px);
-      margin-top:20px;
-    }
-
-    .panel-title{
-      font-family:"Orbitron", sans-serif;
-      font-size:1rem;
-      font-weight:800;
-      letter-spacing:1px;
-      margin-bottom:16px;
-      display:flex;
-      align-items:center;
-      gap:12px;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-transform:uppercase;
-      flex-wrap:wrap;
-    }
-
-    .problem-heading{
-      text-transform:none !important;
-      font-size:1rem;
-      white-space:nowrap;
-    }
-
-    .panel-title i{
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      font-size:1.1rem;
-    }
-
-    .social-grid{
-      display:flex;
-      gap:15px;
-      justify-content:space-between;
-    }
-
-    .social-btn{
-      flex:1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:12px;
-      padding:18px;
-      border-radius:14px;
-      background: rgba(255, 255, 255, 0.03);
-      border:1px solid rgba(157, 92, 255, 0.25);
-      color:#fff;
-      text-decoration:none;
-      transition: all 0.25s ease;
-    }
-
-    .social-btn:hover{
-      transform:translateY(-2px);
-      background: rgba(0, 217, 255, 0.08);
-      border-color:var(--cyan);
-    }
-
-    .social-btn i{
-      font-size:22px;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      width:22px;
-      text-align:center;
-    }
-
-    .social-btn span{
-      font-size:15px;
-      font-weight:700;
-      color:#fff;
-    }
-
-    form{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-      margin-top:4px;
-    }
-
-    .full{ grid-column:1 / -1; }
-
-    .input-wrap{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-
-    label{
-      font-size:13.5px;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      font-weight:700;
-      letter-spacing:.25px;
-    }
-
-    input, select, textarea{
-      width:100%;
-      border:none;
-      outline:none;
-      border-radius:12px;
-      padding:15px 16px;
-      background: rgba(5, 8, 20, 0.8);
-      border:1px solid rgba(157, 92, 255, 0.25);
-      color:var(--text);
-      font-size:15px;
+      padding: 14px 16px;
+      background: rgba(3, 7, 18, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      font-size: 14.5px;
       font-family: "Fira Code", monospace;
-      transition:0.25s ease;
+      transition: all 0.3s ease;
     }
 
-    input::placeholder, textarea::placeholder{
-      color:#506280;
+    input::placeholder, textarea::placeholder {
+      color: #475569;
     }
 
-    input:focus, select:focus, textarea:focus{
-      border-color:var(--cyan);
-      background: rgba(5, 8, 20, 0.95);
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+      background: rgba(3, 7, 18, 0.9);
     }
 
-    select option{
-      background:#070913;
-      color:#ffffff;
+    select option {
+      background: #030712;
+      color: #ffffff;
     }
 
-    textarea{
-      min-height:185px;
-      resize:vertical;
-      line-height:1.65;
+    textarea {
+      min-height: 150px;
+      resize: vertical;
     }
 
-    .submit-btn{
-      position:relative;
-      overflow:hidden;
-      border:none;
-      outline:none;
-      padding:16px 20px;
-      border-radius:12px;
-      font-size:16px;
-      font-weight:800;
-      cursor:pointer;
-      color:#ffffff;
-      background: var(--gradient-primary);
-      transition:0.3s ease;
+    .submit-btn {
+      border: none;
+      outline: none;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      color: #ffffff;
+      background: var(--gradient-btn);
+      background-size: 200% auto;
+      transition: all 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(112, 0, 255, 0.3);
     }
 
-    .submit-btn:hover{
-      opacity: 0.9;
-      transform:translateY(-2px);
+    .submit-btn:hover {
+      background-position: right center;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 0, 123, 0.4);
     }
 
-    .submit-btn i{ margin-right:8px; font-size:18px; }
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 600px) {
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
 
-    @media (max-width: 820px){
-      form{ grid-template-columns:1fr; }
-    }
-
-    @media (max-width: 640px){
-      .hero-box {
-        padding: 16px 14px;
-        border-radius: 14px;
+      .panel {
+        padding: 18px;
       }
 
       .round-profile {
         width: 100px;
         height: 100px;
       }
-
-      .hero-box.bruno-small-box {
-        width: 90%;
-        padding: 8px 20px;
-      }
-
-      .panel{
-        padding:18px;
-        border-radius:16px;
-      }
-
-      .social-grid{
-        grid-template-columns:1fr 1fr;
-        gap:12px;
-      }
-
-      .social-btn{
-        min-height:62px;
-        padding:14px 10px;
-      }
-
-      .social-btn span{
-        font-size:14px;
-      }
-
-      .hero-title{
-        font-size:clamp(1.1rem, 5.2vw, 1.6rem);
-      }
-
-      .hero-subtitle{
-        font-size:clamp(.8rem, 3.8vw, 1.05rem);
-      }
-
-      .problem-heading{
-        font-size:.88rem;
-      }
     }
-
-    @media (max-width: 420px){
-      .round-profile {
-        width: 90px;
-        height: 90px;
-      }
-
-      .hero-title{
-        font-size:0.95rem;
-        letter-spacing:1px;
-      }
-
-      .hero-subtitle{
-        font-size:.78rem;
-        letter-spacing:1px;
-      }
-
-      .problem-heading{
-        font-size:.8rem;
-      }
-    }
-
   </style>  
 </head>  
 <body>  
-  <!-- DIGITAL NETWORK & CIRCUIT ANIMATION -->
-  <canvas id="cyberCanvas"></canvas>    
+
+  <!-- INTERACTIVE CANVAS BACKGROUND -->
+  <canvas id="bgCanvas"></canvas>    
 
   <div class="container">  
     <div class="hero-container">  
-      <div class="profile-pic-center">  
+      <div class="profile-wrap">  
         <div class="round-profile">  
           <img src="Picsart_26-07-20_02-36-53-570.jpg" alt="Bruno Profile">  
         </div>  
       </div>  
-      <section class="hero-box">  
-        <div class="hero-title">CYBER SECURITY EXPERT</div>  
-      </section>  
-      <section class="hero-box bruno-small-box">  
+      
+      <div class="hero-box">  
+        <div class="hero-title" id="typewriterText">CYBER SECURITY EXPERT</div>  
+      </div>  
+      
+      <div class="hero-box small-box">  
         <div class="hero-subtitle">Your Xamai B4uno</div>  
-      </section>  
+      </div>  
     </div>  
 
+    <!-- INFORMATION PANEL -->
     <section class="panel">  
       <h2 class="panel-title">  
-        <i class="fa-solid fa-address-card"></i>  
-        My Information  
+        <i class="fa-solid fa-shield-halved"></i> My Information  
       </h2>  
 
       <div class="social-grid">
-        <!-- Facebook -->    
         <a class="social-btn" href="https://www.facebook.com/share/1HLVnAtnoT/" target="_blank">  
-          <i class="fa-brands fa-facebook-f"></i>  
-          <span>Facebook</span>  
+          <i class="fa-brands fa-facebook-f"></i> <span>Facebook</span>  
         </a>    
-        <!-- TikTok -->    
         <a class="social-btn" href="https://www.tiktok.com/@ruxax" target="_blank">  
-          <i class="fa-brands fa-tiktok"></i>  
-          <span>TikTok</span>  
+          <i class="fa-brands fa-tiktok"></i> <span>TikTok</span>  
         </a>  
-      </div>  
-
-      <div class="social-grid" style="margin-top:15px;">    
-        <!-- Instagram -->    
-        <a class="social-btn" href="https://www.instagram.com/rahim_vex?igsh=MTA4eTdyN2ZycHAyYw==" target="_blank">  
-          <i class="fa-brands fa-instagram"></i>  
-          <span>Instagram</span>  
+        <a class="social-btn" href="https://www.instagram.com/mahin__bbz?igsh=MTA4eTdyN2ZycHAyYw==" target="_blank">  
+          <i class="fa-brands fa-instagram"></i> <span>Instagram</span>  
         </a>    
-        <!-- My Info -->    
         <a class="social-btn" href="javascript:void(0)">  
-          <i class="fa-solid fa-user"></i>  
-          <span>My Info</span>  
+          <i class="fa-solid fa-user-gear"></i> <span>My Info</span>  
         </a>  
       </div>  
     </section>  
 
+    <!-- PROBLEM REPORT PANEL -->
     <section class="panel">  
-      <h2 class="panel-title problem-heading">  
-        <i class="fa-solid fa-file-circle-plus"></i>  
-        Tell us about your problem  
+      <h2 class="panel-title">  
+        <i class="fa-solid fa-bug"></i> Tell us about your problem  
       </h2>  
 
       <form id="supportForm">  
-        <div class="input-wrap full">  
+        <div class="input-wrap">  
           <label for="name">Your Name (Optional)</label>  
-          <input type="text" id="name" name="name" placeholder="Enter your name (optional)" />  
+          <input type="text" id="name" placeholder="Enter your name..." />  
         </div>  
 
-        <div class="input-wrap full">  
+        <div class="input-wrap">  
           <label for="service">Select Problem / Service</label>  
-          <select id="service" name="service" required>  
+          <select id="service" required>  
             <option value="">-- Select a service --</option>  
             <option>TikTok Account Recovery</option>  
             <option>TikTok Suspended Account Appeal Help</option>  
@@ -504,95 +437,131 @@
           </select>  
         </div>  
 
-        <div class="input-wrap full">
-          <label for="problem">Describe Your Problem</label>
-          <textarea id="problem" name="problem" placeholder="Write your problem" required></textarea>  
+        <div class="input-wrap">  
+          <label for="problem">Describe Your Problem</label>  
+          <textarea id="problem" placeholder="Describe the issue in detail..." required></textarea>  
         </div>  
 
-        <div class="input-wrap full">  
-          <button type="submit" class="submit-btn">  
-            <i class="fa-brands fa-whatsapp"></i> Submit On WhatsApp  
-          </button>  
-        </div>  
+        <button type="submit" class="submit-btn">  
+          <i class="fa-brands fa-whatsapp"></i> Submit On WhatsApp  
+        </button>  
       </form>  
-    </section>
+    </section>  
   </div>    
 
-  <!-- ANIMATION SCRIPT -->
+  <!-- JAVASCRIPT ANIMATIONS & LOGIC -->
   <script>  
-    const canvas = document.getElementById("cyberCanvas");  
+    /* --- 1. INTERACTIVE PARTICLE CONSTELLATION CANVAS --- */
+    const canvas = document.getElementById("bgCanvas");  
     const ctx = canvas.getContext("2d");  
       
-    function resizeCanvas(){  
+    function resizeCanvas() {  
       canvas.width = window.innerWidth;  
       canvas.height = window.innerHeight;  
     }  
     resizeCanvas();  
     window.addEventListener("resize", resizeCanvas);  
       
-    const nodes = [];
-    const nodeCount = 55;
-    const colors = ["#00d9ff", "#9d5cff", "#ff4fd8"];
+    const particles = [];
+    const particleCount = 65;
+    const colors = ["#00f0ff", "#7000ff", "#ff007b"];
 
-    for(let i = 0; i < nodeCount; i++) {
-      nodes.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 1.1,
-        vy: (Math.random() - 0.5) * 1.1,
-        radius: Math.random() * 2 + 1,
-        color: colors[Math.floor(Math.random() * colors.length)]
-      });
-    }
+    let mouse = { x: null, y: null, radius: 150 };
 
-    function drawCircuit() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = e.x;
+      mouse.y = e.y;
+    });
 
-      for(let i = 0; i < nodes.length; i++) {
-        let node = nodes[i];
-        node.x += node.vx;
-        node.y += node.vy;
+    window.addEventListener("mouseleave", () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
 
-        if(node.x < 0 || node.x > canvas.width) node.vx *= -1;
-        if(node.y < 0 || node.y > canvas.height) node.vy *= -1;
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 1.2;
+        this.vy = (Math.random() - 0.5) * 1.2;
+        this.size = Math.random() * 2 + 1;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+      }
 
+      draw() {
         ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = node.color;
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
         ctx.fill();
+      }
 
-        for(let j = i + 1; j < nodes.length; j++) {
-          let node2 = nodes[j];
-          let dist = Math.hypot(node.x - node2.x, node.y - node2.y);
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
 
-          if(dist < 120) {
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+        // Interactive mouse connection
+        if (mouse.x && mouse.y) {
+          let dx = mouse.x - this.x;
+          let dy = mouse.y - this.y;
+          let distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < mouse.radius) {
             ctx.beginPath();
-            ctx.moveTo(node.x, node.y);
-            ctx.lineTo(node2.x, node2.y);
-            ctx.strokeStyle = `rgba(0, 217, 255, ${0.8 - dist / 120})`;
-            ctx.lineWidth = 0.6;
+            ctx.moveTo(this.x, this.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = this.color;
+            ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
       }
-
-      requestAnimationFrame(drawCircuit);
     }
 
-    drawCircuit();
-      
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          let dx = particles[i].x - particles[j].x;
+          let dy = particles[i].y - particles[j].y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(112, 0, 255, ${1 - dist / 110})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    /* --- 2. WHATSAPP FORM SUBMISSION --- */
     const form = document.getElementById("supportForm");  
     const whatsappNumber = "8801347344027";  
       
-    form.addEventListener("submit", function(e){  
+    form.addEventListener("submit", function(e) {  
       e.preventDefault();  
       
       const name = document.getElementById("name").value.trim();  
       const service = document.getElementById("service").value;  
       const problem = document.getElementById("problem").value.trim();  
       
-      if(!service || !problem){  
-        alert("Please select a service and write your problem.");  
+      if (!service || !problem) {  
+        alert("Please select a service and describe your problem.");  
         return;  
       }  
       
@@ -606,7 +575,7 @@ New Support Request
 Name: ${finalName}  
 Service: ${service}  
       
-Problem:  
+Problem Description:  
 ${problem}`;  
       
       const encodedMessage = encodeURIComponent(message);  
